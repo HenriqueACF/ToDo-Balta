@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ToDo-Balta")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c81675a80bcb9c2e9f0f84bae9c8d4cc8ea5f67")]
 [assembly: System.Reflection.AssemblyProductAttribute("ToDo-Balta")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ToDo-Balta")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
