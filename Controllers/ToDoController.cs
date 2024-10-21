@@ -38,7 +38,7 @@ public class ToDoController : ControllerBase
         return todo == null ? NotFound() : Ok(todo);
     }
 
-    //CRIANDO TODO
+    //CRIANDO Todo
     [HttpPost]
     [Route("todos")]
     public async Task<IActionResult> PostAsync(
@@ -63,7 +63,39 @@ public class ToDoController : ControllerBase
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            return BadRequest();
+        }
+    }
+    
+    //UPDATE TODO
+    [HttpPut]
+    [Route("todos/{id}")]
+    public async Task<IActionResult> PutAsync(
+        [FromServices] AppDbContext context,
+        [FromBody] CreateTodoViewModel model,
+        [FromRoute] int id)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest();
+
+        var todo = await context
+            .Todos
+            .FirstOrDefaultAsync(x => x.Id == id);
+
+        if (todo == null)
+            return NotFound();
+
+        try
+        {
+            todo.Title = model.Title;
+
+            context.Todos.Update(todo);
+            await context.SaveChangesAsync();
+
+            return Ok(todo);
+        }
+        catch (Exception e)
+        {
             return BadRequest();
         }
     }
